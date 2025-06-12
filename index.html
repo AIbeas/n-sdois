@@ -11,15 +11,25 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 30px 15px;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 10px 8px; /* margem reduzida para todos os lados */
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 4px;
+  }
+
+  .container {
+    padding: 20px 12px;
+  }
+}
 
     .container {
       background-color: rgba(0, 0, 0, 0.6);
