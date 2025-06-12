@@ -11,25 +11,25 @@
     }
 
     body {
-  font-family: 'Segoe UI', sans-serif;
-  background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 30px 15px; /* 🔼 margem lateral e superior maior */
-}
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
 
-.container {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px 30px;
-  border-radius: 20px;
-  max-width: 850px;
-  margin: auto;
-  text-align: center;
-  backdrop-filter: blur(8px);
-}
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 30px;
+      border-radius: 20px;
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
 
     h1 {
       font-size: 2.8em;
@@ -76,15 +76,10 @@
       margin: 15px auto;
     }
 
-   footer {
-      text-align: center;
-      padding: 20px;
-    }
-
     .botao-musica {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 1em;
+      margin-top: 30px;
+      padding: 14px 28px;
+      font-size: 1.1em;
       border-radius: 30px;
       border: none;
       background-color: #fca5a5;
@@ -95,6 +90,10 @@
 
     .botao-musica:hover {
       background-color: #f87171;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -127,14 +126,11 @@
     <h2>💬💬💬</h2>
     <p class="texto-depoimento">TE AMO MINHA ZOZOSSAURA LINDA! 🤍💙💚💛🧡❤️</p>
   </div>
-</div>
 
-<footer>
   <button class="botao-musica" onclick="document.getElementById('audio').play()">
     ▶️ Tocar música
   </button>
-</footer>
-
+</div>
 
 <script>
   function atualizarContador(dataInicio, elementoId, mostrarAnos = true) {
