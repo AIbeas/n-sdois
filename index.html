@@ -15,6 +15,9 @@
       background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .container {
@@ -22,7 +25,7 @@
       padding: 30px;
       border-radius: 20px;
       max-width: 800px;
-      margin: 60px auto;
+      margin: 60px auto 20px;
       text-align: center;
       backdrop-filter: blur(8px);
     }
@@ -34,9 +37,10 @@
     }
 
     .titulo {
-      font-size: 1.4em;
+      font-size: 1.6em;
       margin-top: 30px;
       color: #ffe4e6;
+      font-weight: bold;
     }
 
     .contador {
@@ -49,8 +53,8 @@
     }
 
     .foto {
-      width: 180px;
-      height: 180px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       border-radius: 20px;
       margin: 10px;
@@ -59,38 +63,41 @@
 
     @media (max-width: 500px) {
       .foto {
-        width: 90%;
+        width: 100%;
         height: auto;
       }
     }
 
     .texto-depoimento {
       font-style: italic;
-      font-size: 1.1em;
+      font-size: 1.2em;
       color: #ddd;
       margin: 15px auto;
     }
 
-    button {
-      margin: 20px auto;
-      padding: 10px 20px;
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .botao-musica {
+      margin-top: 20px;
+      padding: 12px 25px;
       font-size: 1em;
-      border-radius: 10px;
+      border-radius: 30px;
       border: none;
       background-color: #fca5a5;
       color: white;
       cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    button:hover {
+    .botao-musica:hover {
       background-color: #f87171;
     }
   </style>
 </head>
 <body>
-
-<!-- Botão para tocar a música (evita bloqueio em mobile) -->
-<button onclick="document.getElementById('audio').play()">▶️ Tocar música</button>
 
 <audio id="audio" autoplay>
   <source src="Filipe Ret - Amor Livre (Letra_Lyrics) [52AVKXLa1PY].mp3" type="audio/mp3">
@@ -120,6 +127,10 @@
     <p class="texto-depoimento">TE AMO MINHA ZOZOSSAURA LINDA! 🤍💙💚💛🧡❤️</p>
   </div>
 </div>
+
+<footer>
+  <button class="botao-musica" onclick="document.getElementById('audio').play()">▶️ Tocar música</button>
+</footer>
 
 <script>
   function atualizarContador(dataInicio, elementoId, mostrarAnos = true) {
