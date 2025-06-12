@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Day ❤️</title>
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #d94f4f;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .contador {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #444;
+    }
+    .titulo {
+      font-size: 1.2em;
+      margin-top: 30px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nosso Dia ❤️</h1>
+
+  <div class="titulo">Desde que tudo começou (26/04/2024)</div>
+  <div id="contador1" class="contador"></div>
+
+  <div class="titulo">Desde que começamos a namorar (12/01/2025)</div>
+  <div id="contador2" class="contador"></div>
+
+  <script>
+    function atualizarContador(dataInicio, elementoId) {
+      const agora = new Date();
+      const inicio = new Date(dataInicio);
+      let anos = agora.getFullYear() - inicio.getFullYear();
+      let meses = agora.getMonth() - inicio.getMonth();
+      let dias = agora.getDate() - inicio.getDate();
+      let horas = agora.getHours() - inicio.getHours();
+      let minutos = agora.getMinutes() - inicio.getMinutes();
+      let segundos = agora.getSeconds() - inicio.getSeconds();
+
+      if (segundos < 0) { segundos += 60; minutos--; }
+      if (minutos < 0) { minutos += 60; horas--; }
+      if (horas < 0) { horas += 24; dias--; }
+      if (dias < 0) {
+        const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+        dias += ultimoMes.getDate();
+        meses--;
+      }
+      if (meses < 0) { meses += 12; anos--; }
+
+      document.getElementById(elementoId).innerHTML =
+        `${anos} ano(s), ${meses} mês(es), ${dias} dia(s), ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(() => {
+      atualizarContador("2024-04-26T00:00:00", "contador1");
+      atualizarContador("2025-01-12T00:00:00", "contador2");
+    }, 1000);
+  </script>
+
+</body>
+</html>
