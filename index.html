@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Nosso Dia ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
       margin: 0;
@@ -12,44 +11,30 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 20px 10px;
-      background-size: cover;
-      background-position: center;
-      transition: background-image 2s ease-in-out;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 30px 15px; /* 🔼 margem lateral e superior maior */
+}
 
-    .container {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 40px 30px;
-      border-radius: 20px;
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      backdrop-filter: blur(8px);
-    }
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
 
     h1 {
       font-size: 2.8em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: #fca5a5;
-    }
-
-    .frase-amor {
-      font-size: 1.3em;
-      margin-bottom: 25px;
-      font-weight: bold;
-      color: #ffebeb;
-      animation: fadeInOut 6s ease-in-out infinite;
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
     }
 
     .titulo {
@@ -64,103 +49,95 @@
       margin: 10px 0 30px;
     }
 
+    .depoimentos, .fotos {
+      margin-top: 40px;
+    }
+
     .foto {
-      width: 260px;
-      height: 260px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       border-radius: 20px;
-      margin: 10px auto;
+      margin: 10px;
       border: 2px solid #fff;
-      display: none;
     }
 
-    .foto.active {
-      display: block;
-      animation: fade 1s ease-in-out;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @media (max-width: 500px) {
+      .foto {
+        width: 100%;
+        height: auto;
+      }
     }
 
     .texto-depoimento {
       font-style: italic;
       font-size: 1.2em;
       color: #ddd;
-      margin: 20px auto;
+      margin: 15px auto;
     }
 
-    #music-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #fca5a5;
-      color: #fff;
-      border: none;
-      padding: 14px 22px;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-      z-index: 999;
-    }
+   footer {
+  text-align: center;
+  padding: 40px 0 20px;
+}
 
-    #music-button:hover {
-      background-color: #f87171;
-    }
+.botao-musica {
+  padding: 16px 40px;
+  font-size: 1.2em;
+  border-radius: 30px;
+  border: none;
+  background-color: #fca5a5;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    audio {
-      display: none;
-    }
+.botao-musica:hover {
+  background-color: #f87171;
+  transform: scale(1.05);
+}
   </style>
 </head>
 <body>
 
-<audio id="audio">
-  <source src="musica.mp3" type="audio/mp3">
+<audio id="audio" autoplay>
+  <source src="Filipe Ret - Amor Livre (Letra_Lyrics) [52AVKXLa1PY].mp3" type="audio/mp3">
 </audio>
-
-<button id="music-button" onclick="toggleMusic()">▶️ Tocar música</button>
 
 <div class="container">
   <h1>Nosso Dia ❤️</h1>
-  <div class="frase-amor">Você é meu mundo...</div>
 
   <div class="titulo">Desde que tudo "recomeçou"</div>
   <div id="contador1" class="contador"></div>
 
-  <div id="slideshow1">
-    <img src="foto1.jpg" class="foto active" />
-    <img src="foto2.jpg" class="foto" />
+  <div class="fotos">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_ecf5ae1b.jpg" class="foto" alt="Foto 2">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_59e61d21.jpg" class="foto" alt="Foto 3">
   </div>
 
   <div class="titulo">Desde que começamos a namorar</div>
   <div id="contador2" class="contador"></div>
 
-  <div id="slideshow2">
-    <img src="foto3.jpg" class="foto active" />
-    <img src="foto4.jpg" class="foto" />
+  <div class="fotos">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_beaacfd2.jpg" class="foto" alt="Foto 1">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_a72e1d01.jpg" class="foto" alt="Foto 4">
   </div>
 
-  <div class="texto-depoimento">TE AMO MINHA ZOZOSSAURA LINDA! 🤍💙💚💛🧡❤️</div>
+  <div class="depoimentos">
+    <h2>💬💬💬</h2>
+    <p class="texto-depoimento">TE AMO MINHA ZOZOSSAURA LINDA! 🤍💙💚💛🧡❤️</p>
+  </div>
 </div>
 
-<script>
-  const backgrounds = [
-    "https://source.unsplash.com/1600x900/?romantic,couple",
-    "https://source.unsplash.com/1600x900/?love,beach",
-    "https://source.unsplash.com/1600x900/?sunset,romance",
-    "https://source.unsplash.com/1600x900/?stars,couple"
-  ];
-  let bgIndex = 0;
-  function updateBackground() {
-    document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
-    bgIndex = (bgIndex + 1) % backgrounds.length;
-  }
-  setInterval(updateBackground, 10000);
-  updateBackground();
+<footer>
+  <button class="botao-musica" onclick="document.getElementById('audio').play()">
+    ▶️ Tocar música
+  </button>
+</footer>
 
+
+<script>
   function atualizarContador(dataInicio, elementoId, mostrarAnos = true) {
     const agora = new Date();
     const inicio = new Date(dataInicio);
@@ -191,29 +168,7 @@
     atualizarContador("2024-04-26T00:00:00", "contador1", true);
     atualizarContador("2025-01-12T00:00:00", "contador2", false);
   }, 1000);
-
-  function startSlideshow(containerId) {
-    const container = document.getElementById(containerId);
-    const imagens = container.querySelectorAll('.foto');
-    let idx = 0;
-    setInterval(() => {
-      imagens[idx].classList.remove('active');
-      idx = (idx + 1) % imagens.length;
-      imagens[idx].classList.add('active');
-    }, 5000);
-  }
-
-  startSlideshow("slideshow1");
-  startSlideshow("slideshow2");
-
-  function toggleMusic() {
-    const audio = document.getElementById("audio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
 </script>
+
 </body>
 </html>
