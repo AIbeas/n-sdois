@@ -49,12 +49,19 @@
     }
 
     .foto {
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 50%;
-      margin: 5px;
+      border-radius: 20px;
+      margin: 10px;
       border: 2px solid #fff;
+    }
+
+    @media (max-width: 500px) {
+      .foto {
+        width: 90%;
+        height: auto;
+      }
     }
 
     .texto-depoimento {
@@ -64,39 +71,54 @@
       margin: 15px auto;
     }
 
-    audio {
-      display: none;
+    button {
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: none;
+      background-color: #fca5a5;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f87171;
     }
   </style>
 </head>
 <body>
 
-<audio autoplay>
+<!-- Botão para tocar a música (evita bloqueio em mobile) -->
+<button onclick="document.getElementById('audio').play()">▶️ Tocar música</button>
+
+<audio id="audio" autoplay>
   <source src="Filipe Ret - Amor Livre (Letra_Lyrics) [52AVKXLa1PY].mp3" type="audio/mp3">
-  Seu navegador não suporta áudio.
 </audio>
 
 <div class="container">
   <h1>Nosso Dia ❤️</h1>
 
-  <div class="titulo">Desde que tudo começou (26/04/2024)</div>
+  <div class="titulo">Desde que tudo "recomeçou"</div>
   <div id="contador1" class="contador"></div>
 
-  <div class="titulo">Desde que começamos a namorar (12/01/2025)</div>
-  <div id="contador2" class="contador"></div>
-
-  <div class="depoimentos">
-    <h2>💬 Depoimentos</h2>
-    <p class="texto-depoimento">"Cada dia contigo é um novo capítulo da melhor história que já vivi."</p>
-    <p class="texto-depoimento">"Nunca imaginei que a palavra 'nós' pudesse significar tanto." – 💖</p>
+  <div class="fotos">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_ecf5ae1b.jpg" class="foto" alt="Foto 2">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_59e61d21.jpg" class="foto" alt="Foto 3">
   </div>
 
-<div class="fotos">
-  <h2>📸 Momentos</h2>
-  <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_beaacfd2.jpg" class="foto" alt="Foto 1">
-  <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_ecf5ae1b.jpg" class="foto" alt="Foto 2">
-  <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_59e61d21.jpg" class="foto" alt="Foto 3">
-  <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_a72e1d01.jpg" class="foto" alt="Foto 4">
+  <div class="titulo">Desde que começamos a namorar</div>
+  <div id="contador2" class="contador"></div>
+
+  <div class="fotos">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.55.35_beaacfd2.jpg" class="foto" alt="Foto 1">
+    <img src="Imagem do WhatsApp de 2025-06-12 à(s) 12.57.11_a72e1d01.jpg" class="foto" alt="Foto 4">
+  </div>
+
+  <div class="depoimentos">
+    <h2>💬💬💬</h2>
+    <p class="texto-depoimento">TE AMO MINHA ZOZOSSAURA LINDA! 🤍💙💚💛🧡❤️</p>
+  </div>
 </div>
 
 <script>
