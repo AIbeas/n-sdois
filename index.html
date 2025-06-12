@@ -2,33 +2,81 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Nosso Day ❤️</title>
+  <title>Nosso Dia ❤️</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #fff8f0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 60px auto;
       text-align: center;
-      padding: 40px;
+      backdrop-filter: blur(8px);
     }
+
     h1 {
-      color: #d94f4f;
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #fca5a5;
     }
-    .contador {
-      font-size: 1.5em;
-      margin: 20px 0;
-      color: #444;
-    }
+
     .titulo {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-top: 30px;
-      color: #666;
+      color: #ffe4e6;
+    }
+
+    .contador {
+      font-size: 1.8em;
+      margin: 10px 0 30px;
+    }
+
+    .depoimentos, .fotos {
+      margin-top: 40px;
+    }
+
+    .foto {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 5px;
+      border: 2px solid #fff;
+    }
+
+    .texto-depoimento {
+      font-style: italic;
+      font-size: 1.1em;
+      color: #ddd;
+      margin: 15px auto;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
+<audio autoplay loop>
+  <source src="https://voca.ro/1aTpKP48PIfI" type="audio/mp3">
+  Seu navegador não suporta áudio.
+</audio>
+
+<div class="container">
   <h1>Nosso Dia ❤️</h1>
 
   <div class="titulo">Desde que tudo começou (26/04/2024)</div>
@@ -37,36 +85,52 @@
   <div class="titulo">Desde que começamos a namorar (12/01/2025)</div>
   <div id="contador2" class="contador"></div>
 
-  <script>
-    function atualizarContador(dataInicio, elementoId) {
-      const agora = new Date();
-      const inicio = new Date(dataInicio);
-      let anos = agora.getFullYear() - inicio.getFullYear();
-      let meses = agora.getMonth() - inicio.getMonth();
-      let dias = agora.getDate() - inicio.getDate();
-      let horas = agora.getHours() - inicio.getHours();
-      let minutos = agora.getMinutes() - inicio.getMinutes();
-      let segundos = agora.getSeconds() - inicio.getSeconds();
+  <div class="depoimentos">
+    <h2>💬 Depoimentos</h2>
+    <p class="texto-depoimento">"Cada dia contigo é um novo capítulo da melhor história que já vivi."</p>
+    <p class="texto-depoimento">"Nunca imaginei que a palavra 'nós' pudesse significar tanto." – 💖</p>
+  </div>
 
-      if (segundos < 0) { segundos += 60; minutos--; }
-      if (minutos < 0) { minutos += 60; horas--; }
-      if (horas < 0) { horas += 24; dias--; }
-      if (dias < 0) {
-        const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
-        dias += ultimoMes.getDate();
-        meses--;
-      }
-      if (meses < 0) { meses += 12; anos--; }
+  <div class="fotos">
+    <h2>📸 Momentos</h2>
+    <img src="https://placekitten.com/200/200" class="foto" alt="foto1">
+    <img src="https://placebear.com/200/200" class="foto" alt="foto2">
+    <!-- Substitua por suas fotos reais -->
+  </div>
+</div>
 
-      document.getElementById(elementoId).innerHTML =
-        `${anos} ano(s), ${meses} mês(es), ${dias} dia(s), ${horas}h ${minutos}m ${segundos}s`;
+<script>
+  function atualizarContador(dataInicio, elementoId, mostrarAnos = true) {
+    const agora = new Date();
+    const inicio = new Date(dataInicio);
+    let anos = agora.getFullYear() - inicio.getFullYear();
+    let meses = agora.getMonth() - inicio.getMonth();
+    let dias = agora.getDate() - inicio.getDate();
+    let horas = agora.getHours() - inicio.getHours();
+    let minutos = agora.getMinutes() - inicio.getMinutes();
+    let segundos = agora.getSeconds() - inicio.getSeconds();
+
+    if (segundos < 0) { segundos += 60; minutos--; }
+    if (minutos < 0) { minutos += 60; horas--; }
+    if (horas < 0) { horas += 24; dias--; }
+    if (dias < 0) {
+      const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+      dias += ultimoMes.getDate();
+      meses--;
     }
+    if (meses < 0) { meses += 12; anos--; }
 
-    setInterval(() => {
-      atualizarContador("2024-04-26T00:00:00", "contador1");
-      atualizarContador("2025-01-12T00:00:00", "contador2");
-    }, 1000);
-  </script>
+    let texto = mostrarAnos && anos > 0 ? `${anos} ano(s), ` : '';
+    texto += `${meses} mês(es), ${dias} dia(s), ${horas}h ${minutos}m ${segundos}s`;
+
+    document.getElementById(elementoId).innerText = texto;
+  }
+
+  setInterval(() => {
+    atualizarContador("2024-04-26T00:00:00", "contador1", true);
+    atualizarContador("2025-01-12T00:00:00", "contador2", false);
+  }, 1000);
+</script>
 
 </body>
 </html>
